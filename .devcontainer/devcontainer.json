@@ -5,7 +5,7 @@
   "workspaceFolder": "/workspace",
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
-  },s
+  },
   "extensions": [
     "dbaeumer.vscode-eslint",
     "ms-python.python"
