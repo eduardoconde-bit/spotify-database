@@ -1,6 +1,6 @@
 services:
   app:
-    image: mcr.microsoft.com/vscode/devcontainers/base:ubuntu
+    image: alpine:latest
     volumes:
       - ..:/workspace
     working_dir: /workspace
