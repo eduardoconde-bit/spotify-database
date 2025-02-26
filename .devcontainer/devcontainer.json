@@ -5,10 +5,13 @@
   "workspaceFolder": "/workspace",
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
-  },
+  },s
   "extensions": [
     "dbaeumer.vscode-eslint",
     "ms-python.python"
   ],
-  "postCreateCommand": "sudo service mariadb start"
+  "postCreateCommand": "sudo service mariadb start",
+  "features": {
+    "ghcr.io/cirolosapio/devcontainers-features/alpine-php-mariadb:0": {}
+  }
 }

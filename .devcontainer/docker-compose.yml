@@ -1,19 +1,16 @@
-version: '3.8'
-
 services:
   app:
     image: mcr.microsoft.com/vscode/devcontainers/base:ubuntu
-    container_name: codespaces-app
     volumes:
       - ..:/workspace
     working_dir: /workspace
     command: sleep infinity
     depends_on:
-      - mariadb
+      mariadb:
+        condition: service_healthy
 
   mariadb:
     image: mariadb:latest
-    container_name: codespaces-mariadb
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: mydatabase
@@ -23,6 +20,11 @@ services:
       - "3306:3306"
     volumes:
       - mariadb-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 10s
+      retries: 5
 
 volumes:
   mariadb-data:
