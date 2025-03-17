@@ -1,6 +1,17 @@
 {
-	"image": "mcr.microsoft.com/devcontainers/universal:2",
-	"features": {
-		"ghcr.io/cirolosapio/devcontainers-features/alpine-php-mariadb:0": {}
-	}
+  "name": "PHP with Composer",
+  "image": "mcr.microsoft.com/vscode/devcontainers/php:latest",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "postCreateCommand": "composer install",
+  "forwardPorts": [80],
+  "mounts": [
+    "source=${workspaceFolder}/.composer,target=/home/vscode/.composer,type=volume"
+  ],
+  "extensions": [
+    "felixfbecker.php-intellisense",
+    "xdebug.php-debug"
+  ],
+  "remoteUser": "vscode"
 }
