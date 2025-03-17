@@ -1,17 +1,8 @@
 {
-  "name": "PHP with Composer",
+  "name": "PHP with Composer (Alpine)",
   "image": "mcr.microsoft.com/vscode/devcontainers/php:latest",
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
+  "features": {
+    "ghcr.io/cirolosapio/devcontainers-features/alpine-php-composer:0": {}
   },
-  "postCreateCommand": "composer install",
-  "forwardPorts": [80],
-  "mounts": [
-    "source=${workspaceFolder}/.composer,target=/home/vscode/.composer,type=volume"
-  ],
-  "extensions": [
-    "felixfbecker.php-intellisense",
-    "xdebug.php-debug"
-  ],
-  "remoteUser": "vscode"
+  "postCreateCommand": "composer install"
 }
