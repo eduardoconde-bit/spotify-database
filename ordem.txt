@@ -1,0 +1,23 @@
+diretório: spotify_db_data
+
+***
+[Módulo música]
+
+insert genres
+insert users
+insert artists - albums (1 arquivo só)
+insert songs
+insert followers_artists
+insert playlist
+insert playlist_songs
+insert liked_songs
+
+[Módulo de Pagamento]
+
+insert plans
+insert subscriptions
+insert payment_methods
+insert member_subscription
+insert orders
+
+***

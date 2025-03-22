@@ -1,0 +1,5 @@
+INSERT INTO plans (plan_id, plan, price, description, max_member) VALUES (1, 'Individual', 19.90, 'Music streaming for one user', 1);
+INSERT INTO plans (plan_id, plan, price, description, max_member) VALUES (2, 'Duo', 29.90, 'Music streaming for two users', 2);
+INSERT INTO plans (plan_id, plan, price, description, max_member) VALUES (3, 'Family', 39.90, 'Music streaming for up to 6 family members', 6);
+INSERT INTO plans (plan_id, plan, price, description, max_member) VALUES (4, 'Student', 12.90, 'Discounted plan for verified students', 1);
+INSERT INTO plans (plan_id, plan, price, description, max_member) VALUES (5, 'Free', 0.0, 'Free plan with advertisements', 1);
