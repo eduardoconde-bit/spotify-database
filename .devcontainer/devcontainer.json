@@ -1,8 +1,26 @@
 {
-  "name": "PHP with Composer (Alpine)",
-  "image": "mcr.microsoft.com/vscode/devcontainers/php:latest",
+  "name": "MariaDB on Alpine",
+  "image": "mariadb:latest",
   "features": {
-    "ghcr.io/cirolosapio/devcontainers-features/alpine-php-composer:0": {}
+    "ghcr.io/devcontainers/features/mariadb:1": {
+      "version": "latest"
+    }
   },
-  "postCreateCommand": "composer install"
+  "forwardPorts": [3306],
+  "postCreateCommand": "mysql --version && mariadb --version",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "formulahendry.docker-extension-pack",
+        "cweijan.mariadb-client"
+      ]
+    }
+  },
+  "containerEnv": {
+    "MYSQL_ROOT_PASSWORD": "102030abc",
+    "MYSQL_DATABASE": "spotify_music",
+    "MYSQL_USER": "eduardo",
+    "MYSQL_PASSWORD": "102030"
+  }
 }
