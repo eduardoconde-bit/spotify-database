@@ -1,11 +1,6 @@
 {
   "name": "MariaDB on Alpine",
   "image": "mariadb:latest",
-  "features": {
-    "ghcr.io/devcontainers/features/mariadb:1": {
-      "version": "latest"
-    }
-  },
   "forwardPorts": [3306],
   "postCreateCommand": "mysql --version && mariadb --version",
   "customizations": {
@@ -22,5 +17,12 @@
     "MYSQL_DATABASE": "spotify_music",
     "MYSQL_USER": "eduardo",
     "MYSQL_PASSWORD": "102030"
-  }
+  },
+  "runArgs": [
+    "--health-cmd=mysqladmin ping --silent",
+    "--health-interval=10s",
+    "--health-timeout=5s",
+    "--health-retries=3"
+  ],
+  "postStartCommand": "echo 'MariaDB is ready!'"
 }
