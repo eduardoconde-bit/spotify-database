@@ -1,28 +1,31 @@
 {
-  "name": "MariaDB on Alpine",
-  "image": "mariadb:latest",
-  "forwardPorts": [3306],
-  "postCreateCommand": "mysql --version && mariadb --version",
+  "name": "Alpine with MariaDB",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true,
+      "installOhMyZsh": true
+    },
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-azuretools.vscode-docker",
-        "formulahendry.docker-extension-pack",
-        "cweijan.mariadb-client"
-      ]
+        "cweijan.vscode-mysql-client2",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-mysql"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      }
     }
   },
-  "containerEnv": {
-    "MYSQL_ROOT_PASSWORD": "102030abc",
-    "MYSQL_DATABASE": "spotify_music",
-    "MYSQL_USER": "eduardo",
-    "MYSQL_PASSWORD": "102030"
-  },
-  "runArgs": [
-    "--health-cmd=mysqladmin ping --silent",
-    "--health-interval=10s",
-    "--health-timeout=5s",
-    "--health-retries=3"
-  ],
-  "postStartCommand": "echo 'MariaDB is ready!'"
+  
+  "forwardPorts": [3306],
+  "postCreateCommand": "echo 'DevContainer construído com sucesso!'"
 }
