@@ -18,10 +18,10 @@ services:
     volumes:
       - mariadb-data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: mariadb
-      MYSQL_DATABASE: devdb
-      MYSQL_USER: devuser
-      MYSQL_PASSWORD: devpassword
+      MYSQL_ROOT_PASSWORD: 102030
+      MYSQL_DATABASE: spotify_music
+      MYSQL_USER: eduardo
+      MYSQL_PASSWORD: 102030
 
 volumes:
   mariadb-data:
